@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import CounterInput from './CounterInput'
+import CounterOutput from './CounterOutput'
+import { Provider } from 'react-redux'
+import store from './store/Store'
+
 
 function App() {
+  const [counter, setCounter] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+    <div>
+        <CounterOutput />
+        <CounterInput />
+      
     </div>
+      </Provider>
   );
 }
 
